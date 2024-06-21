@@ -1,0 +1,5 @@
+create database marketdb;
+
+create table item(item_name varchar(15), item_price int(9), item_quant int(8));
+
+select * from item;
