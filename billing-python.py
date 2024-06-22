@@ -16,7 +16,7 @@ class bill():
         scrn_width = self.root.winfo_screenwidth()
         scrn_height = self.root.winfo_screenheight()
 
-        self.root.geometry("1060x600")
+        self.root.geometry("1900x1000")
 
         mainTitle = tk.Label(self.root, text="Watro.nila Billing System", bg="purple", fg="white", bd=5, relief="groove", font=("Arial", 40, "bold"))
         mainTitle.pack(side="top", fill="x")
@@ -31,56 +31,56 @@ class bill():
 
         itemLabel = tk.Label(self.inputFrame, text="Item Name:", bg="purple", font=("Arial", 18, "bold"))
         itemLabel.grid(row=0, column=0, padx=10, pady=30)
-        self.itemIn = tk.Entry(self.inputFrame, width=15, font=("Arial", 18))
+        self.itemIn = tk.Entry(self.inputFrame, width=20, font=("Arial", 18))
         self.itemIn.grid(row=0, column=1, padx=5, pady=30)
 
         quantLabel = tk.Label(self.inputFrame, text="Item Quantity:", bg="purple", font=("Arial", 18, "bold"))
         quantLabel.grid(row=1, column=0, padx=10, pady=30)
-        self.quantIn = tk.Entry(self.inputFrame, width=15, font=("Arial", 18))
+        self.quantIn = tk.Entry(self.inputFrame, width=20, font=("Arial", 18))
         self.quantIn.grid(row=1, column=1, padx=5, pady=30)
 
-        purchaseBtn = tk.Button(self.inputFrame, width=8, command=self.purchase, text="Purchase", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
+        purchaseBtn = tk.Button(self.inputFrame, width=10, command=self.purchase, text="Purchase", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
         purchaseBtn.grid(row=2, column=0, padx=30, pady=50)
 
-        printBillBtn = tk.Button(self.inputFrame, width=8, command=self.print_bill, text="Print Bill", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
+        printBillBtn = tk.Button(self.inputFrame, width=10, command=self.print_bill, text="Print Bill", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
         printBillBtn.grid(row=2, column=1, padx=30, pady=50)
 
-        addBtn = tk.Button(self.inputFrame, width=15, command=self.add_fun, text="Add Item", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
+        addBtn = tk.Button(self.inputFrame, width=20, command=self.add_fun, text="Add Item", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
         addBtn.grid(row=3, column=0, padx=30, pady=20, columnspan=2)
 
-        clearBtn = tk.Button(self.inputFrame, width=15, command=self.clear_bill, text="Clear Bill", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
+        clearBtn = tk.Button(self.inputFrame, width=20, command=self.clear_bill, text="Clear Bill", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
         clearBtn.grid(row=4, column=0, padx=30, pady=20, columnspan=2)
 
         # -----Detail Frame-------------
         self.detailFrame = tk.Frame(self.root, bg="purple", bd=5, relief="groove")
         self.detailFrame.pack(fill="both", expand=True)
 
-        self.list = tk.Listbox(self.detailFrame, width=68, height=27, bg="pink", bd=3, relief="sunken", font=("Arial", 15))
+        self.list = tk.Listbox(self.detailFrame, width=90, height=35, bg="pink", bd=3, relief="sunken", font=("Arial", 15))
         self.list.grid(row=0, column=0, padx=20, pady=20)
 
     def add_fun(self):
         self.addFrame = tk.Frame(self.root, bg="sky blue", bd=5, relief="groove")
-        self.addFrame.place(x=395, y=60, width=450, height=538)
+        self.addFrame.place(x=500, y=60, width=650, height=850)
 
         itemLabel = tk.Label(self.addFrame, text="Item Name:", bg="sky blue", font=("Arial", 18, "bold"))
         itemLabel.grid(row=0, column=0, padx=10, pady=30)
-        self.itemIn = tk.Entry(self.addFrame, width=15, font=("Arial", 18))
+        self.itemIn = tk.Entry(self.addFrame, width=20, font=("Arial", 18))
         self.itemIn.grid(row=0, column=1, padx=5, pady=30)
 
         priceLabel = tk.Label(self.addFrame, text="Item Price:", bg="sky blue", font=("Arial", 18, "bold"))
         priceLabel.grid(row=1, column=0, padx=10, pady=30)
-        self.priceIn = tk.Entry(self.addFrame, width=15, font=("Arial", 18))
+        self.priceIn = tk.Entry(self.addFrame, width=20, font=("Arial", 18))
         self.priceIn.grid(row=1, column=1, padx=5, pady=30)
 
         quantLabel = tk.Label(self.addFrame, text="Item Quantity:", bg="sky blue", font=("Arial", 18, "bold"))
         quantLabel.grid(row=2, column=0, padx=10, pady=30)
-        self.quantIn = tk.Entry(self.addFrame, width=15, font=("Arial", 18))
+        self.quantIn = tk.Entry(self.addFrame, width=20, font=("Arial", 18))
         self.quantIn.grid(row=2, column=1, padx=5, pady=30)
 
-        okBtn = tk.Button(self.addFrame, width=8, command=self.insert_Fun, text="Ok", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
+        okBtn = tk.Button(self.addFrame, width=10, command=self.insert_Fun, text="Ok", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
         okBtn.grid(row=3, column=0, padx=30, pady=50)
 
-        closeBtn = tk.Button(self.addFrame, width=8, command=self.close, text="Close", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
+        closeBtn = tk.Button(self.addFrame, width=10, command=self.close, text="Close", bg="light gray", bd=2, relief="raised", font=("Arial", 20, "bold"))
         closeBtn.grid(row=3, column=1, padx=30, pady=50)
 
     def insert_Fun(self):
@@ -131,13 +131,13 @@ class bill():
         data = cur.fetchone()
 
         if self.satu == 1:
-            joedoel = "                Welcome to Himatro Unila Market            "
-            dati = f"Date: {odate}                                           {otime}"
+            joedoel = "                            Welcome to Himatro Unila Market                             "
+            dati = f"Date: {odate}{' ' * 70}{otime}"
             aidi = uuid.uuid1().int >> 64
             nums = f"Bill number: {aidi}"
-            stroek1 = "=" * 60
-            stroek2 = "Name           Quantity         Price           Amount"
-            stroek3 = "=" * 60
+            stroek1 = "=" * 90
+            stroek2 = f"{'Name':<25}{'Quantity':<25}{'Price':<25}{'Amount':<25}"
+            stroek3 = "=" * 90
             self.list.insert(tk.END, joedoel)
             self.list.insert(tk.END, dati)
             self.list.insert(tk.END, nums)
@@ -154,7 +154,7 @@ class bill():
                 cur.execute("UPDATE item SET item_quant=%s WHERE item_name=%s", (update, item))
                 con.commit()
                 con.close()
-                info = f"{item:<15} {quantity:<15} {price:<15} {amount:<15}"
+                info = f"{item:<25}{quantity:<25}{price:<25}{amount:<25}"
                 self.satu = 0
                 self.list.insert(tk.END, info)
                 self.clearInput()
@@ -169,7 +169,7 @@ class bill():
         if self.list.size() == 0:
             tk.messagebox.showwarning("No Items", "No items have been added to the bill.")
         else:
-            line = "=" * 60
+            line = "=" * 90
             printBill = f"Total Bill: {self.total.get()}"
             self.list.insert(tk.END, line)
             self.list.insert(tk.END, printBill)
